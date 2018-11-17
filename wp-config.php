@@ -18,18 +18,32 @@
  * @package WordPress
  */
 
+if (!getenv('DB_HOST')) {
+    putenv('DB_HOST=localhost');
+}
+if (!getenv('DB_USER')) {
+    putenv('DB_USER=root');
+}
+if (!getenv('DB_NAME')) {
+    putenv('DB_NAME=ToursWordpress');
+}
+if (!getenv('DB_PASSWORD')) {
+    putenv('DB_PASSWORD=root');
+}
+
+
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'ToursWordpress');
+define('DB_NAME', getenv('DB_NAME'));
 
 /** MySQL database username */
-define('DB_USER', 'root');
+define('DB_USER', getenv('DB_USER'));
 
 /** MySQL database password */
-define('DB_PASSWORD', 'root');
+define('DB_PASSWORD', getenv('DB_PASSWORD'));
 
 /** MySQL hostname */
-define('DB_HOST', 'localhost');
+define('DB_HOST', getenv('DB_HOST'));
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8mb4');
